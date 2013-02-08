@@ -80,7 +80,7 @@ function showRecentHistory()
 
 
 		var recentList = new Element("h3");
-		recentList.update("Recently Viewed Issues");
+		recentList.update("最近表示したチケット");
 
 	        
 		$("sidebar").insert({top:recentList});
