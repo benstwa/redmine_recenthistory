@@ -16,9 +16,9 @@ function trackRecentHistory()
 	var issueTitle = null;
 	var issueSubject = null;
 	
-	$$("#content h2").each(function(e)
+	$$("#content h2:first").each(function(e)
 	{
-		issueTitle = e.innerHTML;	
+		issueTitle = e.innerHTML.replace(/^.*#(\d+).*$/, "#$1");
 	});
 
 	$$("#content div.subject h3").each(function(e)
