@@ -93,7 +93,7 @@ function showRecentHistory()
 			{
 				issuesShown++;
 				var entryitem = new Element("a");
-				entryitem.setAttribute("href", "/redmine/issues/" + entry.ID);
+				entryitem.setAttribute("href", "/issues/" + entry.ID);
 				var disp = entry.Str;
 				if (disp.length > 55)
 				{
