@@ -67,9 +67,11 @@ function showRecentHistory()
 		var issuesShown = 0;
 		for (i = 0; i < Object.size(issueArray); i++) {
 			if (issueArray[i]["ID"] != currentIssue) {
-			issuesShown++;
-			var a = "<a href=/issues/" + issueArray[i]["ID"] + ">" + issueArray[i]["Str"] + "</a></br>"
-			$("#recentList").append(a);
+				issuesShown++;
+				var disp = issueArray[i]["Str"];
+				if (disp.length > 55) { disp = disp.substring(0, 55) + "..." }
+				var a = "<a href=/issues/" + issueArray[i]["ID"] + ">" + disp + "</a></br>"
+				$("#recentList").append(a);
 			}
 		}
 
