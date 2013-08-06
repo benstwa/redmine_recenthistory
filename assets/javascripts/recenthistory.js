@@ -53,7 +53,9 @@ function trackRecentHistory() {
 	};
 	issueArray[0] = thisEntry;
 
-	$.cookie("recentIssues", issueArray, {path: '/'})
+	if("https:" == document.location.protocol) var secure_flag = true
+	$.cookie("recentIssues", issueArray, { path: '/', secure: secure_flag })
+
 }
 
 function showRecentHistory()
