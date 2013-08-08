@@ -11,7 +11,9 @@ class RecentHistoryViewListener < Redmine::Hook::ViewListener
 
   # Adds javascript and stylesheet tags
   def view_layouts_base_html_head(context)
-    javascript_include_tag('recenthistory', 'jquery.cookie.js', :plugin => :redmine_recenthistory)
+    tags = [javascript_include_tag('recenthistory', :plugin => :redmine_recenthistory)]
+    tags << javascript_include_tag('jquery.cookie.js', :plugin => :redmine_recenthistory)
+    return tags.join(' ')
   end
 
 end
