@@ -5,7 +5,7 @@
 
 var issueMatcher = new RegExp(/.*\/issues\/(\d+).*/gi);
 var currentIssue = null;
-var maxIssues = 15;
+var maxIssues = 30;
 
 Object.size = function(obj) {
 	var size = 0, key;
