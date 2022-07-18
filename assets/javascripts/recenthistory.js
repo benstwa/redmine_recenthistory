@@ -5,7 +5,7 @@
 
 var issueMatcher = new RegExp(/.*\/issues\/(\d+).*/gi);
 var currentIssue = null;
-var maxIssues = 30;
+var maxIssues = 10;
 
 Object.size = function(obj) {
 	var size = 0, key;
@@ -64,17 +64,15 @@ function showRecentHistory()
 		var issueArray = $.cookie("recentIssues");
 
 		$("<div id='recentList'>").prependTo("#sidebar");
-		var recentList = $("<h3>最近見たチケット</h3>").appendTo("#recentList");
+		var recentList = $("<h3>Recently Viewed Issues</h3>").appendTo("#recentList");
 
 		var issuesShown = 0;
 		for (i = 0; i < Object.size(issueArray); i++) {
-			if (issueArray[i]["ID"] != currentIssue) {
-				issuesShown++;
-				var disp = issueArray[i]["Str"];
-				if (disp.length > 25) { disp = disp.substring(0, 25) + "..." }
-				var a = "<a href=/issues/" + issueArray[i]["ID"] + ">" + disp + "</a></br>"
-				$("#recentList").append(a);
-			}
+			issuesShown++;
+			var disp = issueArray[i]["Str"];
+			if (disp.length > 50) { disp = disp.substring(0, 50) + "..." }
+			var a = "<a href=/issues/" + issueArray[i]["ID"] + ">" + disp + "</a></br>"
+			$("#recentList").append(a);
 		}
 
 		if (issuesShown < 1) {
